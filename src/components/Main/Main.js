@@ -3,23 +3,24 @@ import Navbar from "../Navbar/Navbar";
 import { Form, Card, Container, Row, Col } from "react-bootstrap/";
 import axios from "axios";
 import dotenv from "dotenv";
+import { SameValueNonNumber } from "es-abstract/es2016";
 dotenv.config();
 
 
 export default function Main(props) {
 
     const [title, setTitle] = useState("");
+    const [bookData, setData] = useState([])
 
     function buildQueryURL(e) {
         e.preventDefault();
         var key = process.env.API
         var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + title;
         axios.get(queryURL).then((data) => {
-            var searchReturn = data.data.items;
-            console.log(searchReturn[0].volumeInfo)
-          })
-        return (queryURL)
-        
+          var searchReturn = data.data.items;
+          setData(searchReturn)
+          console.log(searchReturn)
+        })
     }
  
     return (
@@ -38,9 +39,9 @@ export default function Main(props) {
        
         <div className="container">
             <div className="row" id="main">
-                <p>{title}</p>
-                <div className="col-4" id="pic"></div>
-                <img id="book-pic"></img>
+                
+              <div className="col-4" id="pic"></div>
+              <img id="book-pic"></img>
             </div>
         </div>
         </div>
