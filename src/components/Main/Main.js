@@ -13,10 +13,10 @@ export default function Main(props) {
     function buildQueryURL(e) {
         e.preventDefault();
         var key = process.env.API
-        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=harry+potter";
+        var queryURL = "https://www.googleapis.com/books/v1/volumes?q=" + title;
         axios.get(queryURL).then((data) => {
             var searchReturn = data.data.items;
-            console.log(searchReturn[0].volumeInfo.title)
+            console.log(searchReturn[0].volumeInfo)
           })
         return (queryURL)
         
