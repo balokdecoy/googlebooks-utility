@@ -20,6 +20,7 @@ export default function Main(props) {
           var searchReturn = data.data.items;
           setData(searchReturn)
           console.log(searchReturn)
+          console.log(bookData);
         })
     }
  
@@ -38,14 +39,24 @@ export default function Main(props) {
           </div>
        
         <div className="container">
-            <div className="row" id="main">
-                
+            {/* <div className="row" id="main">            
               <div className="col-4" id="pic"></div>
               <img id="book-pic"></img>
-            </div>
+            </div> */}
+            {bookData.map((x => { return (
+              <div className="row" id="main">
+                <div className="col-6" id="title" key={x.title}>{x.volumeInfo.title}</div>
+                <div className="col-6" id="author" key={x.authors}>{x.volumeInfo.authors}</div>
+              </div>
+            )}))}
         </div>
         </div>
         </div>
     )
     
 }
+
+// {bookData.map((x => { return (
+//   <div className="row" id="main">
+//   <div className="col-4" id="pic">{x.title}</div>
+//   <img id="book-pic" src={x.pic}>
