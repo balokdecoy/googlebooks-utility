@@ -39,14 +39,16 @@ export default function Main(props) {
           </div>
        
         <div className="container">
-            {/* <div className="row" id="main">            
-              <div className="col-4" id="pic"></div>
-              <img id="book-pic"></img>
-            </div> */}
             {bookData.map((x => { return (
               <div className="row" id="main">
-                <div className="col-6" id="title" key={x.title}>{x.volumeInfo.title}</div>
-                <div className="col-6" id="author" key={x.authors}>{x.volumeInfo.authors}</div>
+                <Card>
+                  <Card.Body>
+                    <Card.Img variant="left" src={x.volumeInfo.imageLinks.smallThumbnail}></Card.Img>
+                    <Card.Title>{x.volumeInfo.title}</Card.Title>
+                    <Card.Title>{x.volumeInfo.authors}</Card.Title>
+                    <Card.Text>{x.volumeInfo.description}</Card.Text>
+                  </Card.Body>
+                </Card>
               </div>
             )}))}
         </div>
@@ -55,8 +57,3 @@ export default function Main(props) {
     )
     
 }
-
-// {bookData.map((x => { return (
-//   <div className="row" id="main">
-//   <div className="col-4" id="pic">{x.title}</div>
-//   <img id="book-pic" src={x.pic}>
