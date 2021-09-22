@@ -21,6 +21,8 @@ export default function Main(props) {
           setData(searchReturn)
           console.log(searchReturn)
           console.log(bookData);
+        }).catch((error) => {
+          console.log(error)
         })
     }
  
@@ -54,6 +56,5 @@ export default function Main(props) {
         </div>
         </div>
         </div>
-    )
-    
+    ) 
 }
