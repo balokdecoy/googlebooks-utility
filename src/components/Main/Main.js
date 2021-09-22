@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
-import { Form, Card, Container, Row, Col } from "react-bootstrap/";
+import { Form, Card, Container, Row, Col, Image } from "react-bootstrap/";
 import axios from "axios";
 import dotenv from "dotenv";
 import { SameValueNonNumber } from "es-abstract/es2016";
@@ -43,12 +43,17 @@ export default function Main(props) {
         <div className="container">
             {bookData.map((x => { return (
               <div className="row" id="main">
-                <Card>
-                  <Card.Body>
-                    <Card.Img variant="left" src={x.volumeInfo.imageLinks.smallThumbnail}></Card.Img>
+                <Card border="secondary">
+                  <Card.Body className="row">
+                    <Col xs={6} md={4} lg={8}>
+                    <Image variant="left" src={x.volumeInfo.imageLinks.thumbnail + "/171px180"} fluid></Image>
+                    </Col>
+                    <div className="col-10">
                     <Card.Title>{x.volumeInfo.title}</Card.Title>
-                    <Card.Title>{x.volumeInfo.authors}</Card.Title>
+                    <Card.Title>by {x.volumeInfo.authors} </Card.Title>
                     <Card.Text>{x.volumeInfo.description}</Card.Text>
+                    </div>
+                    
                   </Card.Body>
                 </Card>
               </div>
