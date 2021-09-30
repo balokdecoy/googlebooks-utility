@@ -43,7 +43,7 @@ export default function Main(props) {
         <div className="container">
             {bookData.map((x => { return (
               <div className="row" id="main">
-                <Card border="secondary">
+                <Card border="secondary" style={{ borderRadius: "15px", margin: "10px" }}>
                   <Card.Body className="row">
                     <Col xs={6} md={4} lg={8}>
                     <Image variant="left" src={x.volumeInfo.imageLinks.thumbnail + "/171px180"} fluid></Image>

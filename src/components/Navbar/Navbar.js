@@ -10,7 +10,7 @@ export default function Nav(props) {
 
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar bg="light" variant="light" expand="lg">
           <Container>
            <Navbar.Brand href="/">Google Books Search Utility</Navbar.Brand>
            </Container>
