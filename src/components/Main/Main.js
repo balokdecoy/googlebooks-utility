@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import Navbar from "../Navbar/Navbar";
+import Nav from "../Navbar/Navbar";
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Form, Card, Container, Row, Col, Image } from "react-bootstrap/";
 import axios from "axios";
 import dotenv from "dotenv";
-import { SameValueNonNumber } from "es-abstract/es2016";
 dotenv.config();
 
 
@@ -29,9 +29,9 @@ export default function Main(props) {
     return (
         <div>
         <div className="container">
+        <Nav />
           <div className="navbar navbar-expand-lg navbar-light bg-light">
             <div className="container-fluid">
-              <a className="navbar-brand" href="/">Google Books Search Utility</a>
                 <form className="d-flex" onSubmit={buildQueryURL}>
                 <input className="form-control" id="search-term" type="text" placeholder="Search" aria-label="Book or Author Search"
                value={title} onChange={(e) => setTitle(e.target.value)}></input>
@@ -53,7 +53,6 @@ export default function Main(props) {
                     <Card.Title>by {x.volumeInfo.authors} </Card.Title>
                     <Card.Text>{x.volumeInfo.description}</Card.Text>
                     </div>
-                    
                   </Card.Body>
                 </Card>
               </div>
