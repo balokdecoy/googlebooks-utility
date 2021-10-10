@@ -47,7 +47,7 @@ export default function Main(props) {
                   <Card.Body className="row">
                     <Col xs={6} md={4} lg={8}>
                     <Image variant="left" src={x.volumeInfo.imageLinks !== undefined ? 
-                    x.volumeInfo.imageLinks.smallThumbnail + "/171px180" : ""} fluid></Image>
+                    x.volumeInfo.imageLinks.smallThumbnail + "/171px180" : ""} alt={x.volumeInfo.title} fluid></Image>
                     </Col>
                     <div className="col-10">
                     <Card.Title>{x.volumeInfo.title}</Card.Title>
