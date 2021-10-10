@@ -10,7 +10,7 @@ dotenv.config();
 export default function Main(props) {
 
     const [title, setTitle] = useState("");
-    const [bookData, setData] = useState([])
+    const [bookData, setData] = useState([]);
 
     function buildQueryURL(e) {
         e.preventDefault();
@@ -46,7 +46,8 @@ export default function Main(props) {
                 <Card border="secondary" style={{ borderRadius: "15px", margin: "10px" }}>
                   <Card.Body className="row">
                     <Col xs={6} md={4} lg={8}>
-                    <Image variant="left" src={x.volumeInfo.imageLinks.thumbnail + "/171px180"} fluid></Image>
+                    <Image variant="left" src={x.volumeInfo.imageLinks !== undefined ? 
+                    x.volumeInfo.imageLinks.smallThumbnail + "/171px180" : ""} fluid></Image>
                     </Col>
                     <div className="col-10">
                     <Card.Title>{x.volumeInfo.title}</Card.Title>
